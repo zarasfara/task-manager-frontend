@@ -1,32 +1,18 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
+import Header from './components/Header.vue';
+import SideBar from "./components/SideBar.vue"
+
 </script>
 
 <template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
+  <Header />
+  <div class="desktop:container mx-auto flex md:flex-row sm:flex-col mt-4">
+    <section
+      class="main-block desktop:w-4/5 md:w-2/3 md:mr-2 desktop:mr-2 bg-white rounded-md py-2.5 sm:mt-4 px-3 border border-gray-200 sm:order-2 drop-shadow-md">
+      <slot></slot>
+    </section>
+    <side-bar />
   </div>
-  <HelloWorld msg="Vite + Vue" />
 </template>
 
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
-</style>
+<style scoped></style>
