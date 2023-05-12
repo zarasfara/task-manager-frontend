@@ -1,11 +1,12 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
     content: [
-        "./src/**/*.{html,js}",
+        "./index.html",
+        "./src/**/*.{vue,js}",
     ],
-    plugins: [
-        require('@tailwindcss/forms'),
-    ],
+    // plugins: [
+    //     require('@tailwindcss/forms'),
+    // ],
     theme: {
         extend: {
             colors: {
@@ -24,22 +25,22 @@ module.exports = {
             },
             screens: {
                 // Телефоны и планшеты
-                'sm': {'min': '319px', 'max': '768px'},
+                'sm': { 'min': '319px', 'max': '768px' },
                 // => @media (min-width: 640px and max-width: 767px) { ... }
 
-                'md': {'min': '769px', 'max': '1025px'},
+                'md': { 'min': '769px', 'max': '1025px' },
                 // => @media (min-width: 768px and max-width: 1023px) { ... }
 
                 // Нотбуки и больше
-                'lg': {'min': '769px'},
+                'lg': { 'min': '769px' },
                 // => @media (min-width: 1024px) { ... }
 
 
-                'xl': {'min': '1281px', 'max': '1536px'},
+                'xl': { 'min': '1281px', 'max': '1536px' },
                 // => @media (min-width: 1280px and max-width: 1535px) { ... }
 
                 //Все экраны
-                'desktop': {'min':'1025px'}
+                'desktop': { 'min': '1025px' }
                 // => @media (min-width: 1536px) { ... }
             }
         },
