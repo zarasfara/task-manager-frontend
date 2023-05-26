@@ -39,16 +39,14 @@ export default {
                     id="mobile-menu-2">
                     <ul class="flex flex-col sm:mt-4 font-medium lg:flex-row lg:space-x-8 sm:mt-0">
                         <li>
-                            <a href="#"
-                                class="text-gray-400 block py-2 pr-4 pl-3 rounded desktop:bg-transparent lg:p-0 hover:text-primary-600">
-                                Главная
-                            </a>
+                            <router-link
+                                class="text-gray-400 block py-2 pr-4 pl-3 rounded desktop:bg-transparent lg:p-0 hover:text-primary-600"
+                                :to="{ name: 'home' }">Главная</router-link>
                         </li>
                         <li>
-                            <a href="#"
-                                class="block py-2 pr-4 pl-3 text-gray-400 border-gray-100 desktop:hover:bg-transparent desktop:border-0 hover:text-primary-600 lg:p-0">
-                                Проекты
-                            </a>
+                            <router-link
+                                class="block py-2 pr-4 pl-3 text-gray-400 border-gray-100 desktop:hover:bg-transparent desktop:border-0 hover:text-primary-600 lg:p-0"
+                                :to="{ name: 'projects' }">Проекты</router-link>
                         </li>
                         <li>
                             <a class="block py-2 pr-4 pl-3 text-gray-400 border-gray-100 lg:hover:bg-transparent lg:border-0 hover:text-primary-600 lg:p-0"

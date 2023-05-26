@@ -6,9 +6,12 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "watch:tailwind": "npx tailwindcss -i ./src/assets/input.css -o ./dist/output.css --watch",
+    "start": "concurrently \"npm run dev\" \"npm run watch:tailwind\"",
     "preview": "vite preview"
   },
   "dependencies": {
+    "concurrently": "^8.0.1",
     "vue": "^3.2.47",
     "vue-router": "^4.2.0"
   },

@@ -1,5 +1,5 @@
 <script>
-import Layout from "../App.vue";
+import Layout from "@/App.vue";
 
 export default {
     name: "Home",
