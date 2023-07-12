@@ -1,12 +1,3 @@
-<script>
-
-export default {
-    name: "Header",
-}
-
-
-</script>
-
 <template>
     <header>
         <nav class="border-gray-200 px-4 desktop:pt-3 lg:px-6 sm:py-2.5 md:py-2.5">
@@ -69,7 +60,7 @@ export default {
                             </a>
                         </li>
                         <li>
-                            <a href="#"
+                            <a href="/logout" @click.prevent="logout"
                                 class="block py-2 pr-4 pl-3 rounded desktop:bg-transparent text-gray-400 lg:p-0 desktop:hover:text-primary-600"
                                 aria-current="page">Выход
                             </a>
@@ -80,5 +71,35 @@ export default {
         </nav>
     </header>
 </template>
+
+<script setup>
+import { useAuthStore } from "@/stores/auth.store";
+import { useRouter } from 'vue-router';
+import axios from 'axios';
+
+const router = useRouter()
+const authStore = useAuthStore()
+
+const logout = async () => {
+
+    try {
+        // Выполните запрос к API для разлогинивания пользователя
+        axios.post('/v1/auth/logout');
+
+        // Очистите данные о пользователе в store или в LocalStorage, если они хранятся там
+        authStore.clearUser()
+
+        // Перенаправьте пользователя на страницу логина или другую страницу
+        // В зависимости от вашего приложения
+        // Например, если у вас есть маршрут для страницы логина с именем 'login':
+        router.push({
+            name: 'login'
+        })
+    } catch (error) {
+        console.error('Ошибка при разлогинивании:', error);
+    }
+}
+
+</script>
 
 <style scoped></style>

@@ -1,14 +1,7 @@
-<script>
-
-export default {
-    name: "side-bar",
-}
-</script>
-
 <template>
     <aside class="sm:order-1 desktop:w-1/4 md:w-1/3 sm:mt-3 md:mt-0 drop-shadow-md">
         <div class="bg-white mb-3 rounded-md p-2 px-4 flex justify-center flex-col text-base border border-gray-200">
-            <p>Привет, <span class="font-bold">User</span></p>
+            <p>Привет, <span class="font-bold">{{ authStore.isAuthenticated ? authStore.getUser?.name : 'no name' }}</span></p>
             <div class="flex mt-3">
                 <p>Сессия: Не начата</p>
                 <form class="ml-2 flex items-center" action="">
@@ -40,9 +33,9 @@ export default {
                                 <span class="text-gray-400 font-thin">10.23.2233</span>
                             </div>
                             <div class="text-sm mt-3 border-b border-gray-300 break-words pb-3">
-                                <p>Can you send this over to the marketing department qwe qwe query / <a href="#"
-                                        class="text-emerald-500 font-bold">task
-                                        project</a></p>
+                                <p>Can you send this over to the marketing department qwe qwe query / 
+                                    <a href="#" class="text-emerald-500 font-bold">task project</a>
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -51,5 +44,13 @@ export default {
         </div>
     </aside>
 </template>
+
+<script setup>
+import { useAuthStore } from "@/stores/auth.store";
+
+const authStore = useAuthStore();
+
+
+</script>
 
 <style scoped></style>
