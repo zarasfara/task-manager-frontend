@@ -1,0 +1,28 @@
+src/
+|-- assets/
+|-- components/
+|-- layouts/
+|-- services/
+|-- store/
+|   |-- modules/
+|   |   |-- auth/
+|   |   |   |-- index.js
+|   |   |   |-- actions.js
+|   |   |   |-- mutations.js
+|   |   |   |-- getters.js
+|   |   |   |-- state.js
+|   |-- index.js
+|-- utils/
+|-- views/
+|   |-- Home/
+|   |   |-- components/
+|   |   |-- index.vue
+|   |   |-- store.js
+|   |-- Auth/
+|   |   |-- components/
+|   |   |-- index.vue
+|   |   |-- store.js
+|-- App.vue
+|-- main.js
+|-- router.js
+|-- ...
