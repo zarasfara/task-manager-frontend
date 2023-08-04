@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export function setAuthorizationHeader(token) {
+export function setAuthorizationHeader(token: string|null): void {
     if (token) {
         axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
     } else {

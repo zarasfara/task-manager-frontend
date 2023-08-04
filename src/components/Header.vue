@@ -8,7 +8,7 @@
                 </a>
                 <!--modal start-->
                 <div class="modal">
-                    <button data-collapse-toggle="mobile-menu-2" type="button" @click="showModal"
+                    <button data-collapse-toggle="mobile-menu-2" type="button" 
                         class="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
                         aria-controls="mobile-menu-2" aria-expanded="false">
                         <span class="sr-only">Open main menu</span>
@@ -72,34 +72,33 @@
     </header>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { useAuthStore } from "@/stores/auth.store";
 import { useRouter } from 'vue-router';
 import axios from 'axios';
 
-const router = useRouter()
-const authStore = useAuthStore()
+const router = useRouter();
+const authStore = useAuthStore();
 
-const logout = async () => {
-
+const logout = async (): Promise<void> => {
     try {
         // Выполните запрос к API для разлогинивания пользователя
-        axios.post('/v1/auth/logout');
+        await axios.post('/v1/auth/logout');
 
         // Очистите данные о пользователе в store или в LocalStorage, если они хранятся там
-        authStore.clearUser()
+        authStore.clearUser();
 
         // Перенаправьте пользователя на страницу логина или другую страницу
         // В зависимости от вашего приложения
         // Например, если у вас есть маршрут для страницы логина с именем 'login':
         router.push({
             name: 'login'
-        })
+        });
     } catch (error) {
         console.error('Ошибка при разлогинивании:', error);
     }
 }
-
 </script>
+
 
 <style scoped></style>
